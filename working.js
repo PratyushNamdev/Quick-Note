@@ -13,8 +13,8 @@ function addNote(text="" , val=""){
       div.innerHTML = `
       <div class="btn">
           
-        <button  class="save-btn"><img  src="/unsave.png" alt="" title="Save"></button>
-         <button  class="delete-btn">  <img src="/delete.png"  alt="delete" title="Delete"></button>
+        <button  class="save-btn"><img  src="/imgs/unsave.png" alt="" title="Save"></button>
+         <button  class="delete-btn">  <img src="/imgs/delete.png"  alt="delete" title="Delete"></button>
       </div>
    <textarea name="text" placeholder="write here..." class="txt"  cols="30" rows="10">${text}</textarea>
    <div id="${JSON.stringify(Math.random())}"></div>
@@ -23,8 +23,8 @@ function addNote(text="" , val=""){
    else if(val != ""){
       div.innerHTML = `
       <div class="btn">
-         <button  class="save-btn"><img class="save-icon" src="/saved.png" alt="save" title="Saved" ></button>
-         <button  class="delete-btn">  <img src="/delete.png"  alt="delete" title="Delete"></button>
+         <button  class="save-btn"><img class="save-icon" src="/imgs/saved.png" alt="save" title="Saved" ></button>
+         <button  class="delete-btn">  <img src="/imgs/delete.png"  alt="delete" title="Delete"></button>
       </div>
    <textarea name="text" class="txt"  cols="30" rows="10">${text}</textarea>
    <div id="${val}"></div>
@@ -41,18 +41,18 @@ function addNote(text="" , val=""){
         
          if( icon == null){
             localStorage.setItem( div.lastElementChild.id , JSON.stringify(data));
-            saveImg.innerHTML = `<img class="save-icon" src="/saved.png" alt="" title="Saved"></img>`;
+            saveImg.innerHTML = `<img class="save-icon" src="/imgs/saved.png" alt="" title="Saved"></img>`;
          }
          else{
             localStorage.removeItem(div.lastElementChild.id);
-            saveImg.innerHTML = `<img  src="/unsave.png" alt="" title="Save">`;
+            saveImg.innerHTML = `<img  src="/imgs/unsave.png" alt="" title="Save">`;
          }
 
       })
      
       div.querySelector('.txt').addEventListener('input' ,()=>{
          let saveImg = div.querySelector(".save-btn");
-         saveImg.innerHTML = `<img  src="/unsave.png" alt="" title="Saved"></img>`;
+         saveImg.innerHTML = `<img  src="/imgs/unsave.png" alt="" title="Saved"></img>`;
       })
 
       div.querySelector('.delete-btn').addEventListener('click' , ()=>{
